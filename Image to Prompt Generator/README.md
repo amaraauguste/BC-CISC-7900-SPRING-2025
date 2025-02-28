@@ -31,8 +31,8 @@ This tool is designed to aid users in generating images based on their unique ar
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/amaraauguste/BC-CISC-7900-SPRING-2025.git
+   cd BC-CISC-7900-SPRING-2025/Image\ to\ Prompt\ Generator
    ```
 
 2. **Install necessary packages:**
