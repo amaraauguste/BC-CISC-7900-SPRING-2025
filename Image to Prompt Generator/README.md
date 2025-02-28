@@ -4,7 +4,9 @@
 
 ## Overview
 
-The **Image to Prompt Generator** is a Flask application that utilizes the NOVITA API to convert images into textual prompts. This tool is designed to aid users in generating images based on their unique artistic styles by converting their uploaded images into descriptive prompts, which can then be used in text-to-image models.
+This **Image to Prompt Generator** is a Flask application that utilizes the NOVITA API to convert images into textual prompts. 
+
+This tool is designed to aid users in generating images based on their unique artistic styles by converting their uploaded images into descriptive prompts, which can then be used in text-to-image models.
 
 ### Project Link
 
