@@ -10,7 +10,7 @@ This tool is designed to aid users in generating images based on their unique ar
 
 ### Project Link
 
-- **NOVITA API Documentation:** [NOVITA API Documentation](https://novita.ai/docs/api-reference/model-apis-image-to-prompt)
+- **NOVITA Image to Prompt API Documentation:** [NOVITA Image to Prompt API Documentation](https://novita.ai/docs/api-reference/model-apis-image-to-prompt)
 
 ## Features
 
