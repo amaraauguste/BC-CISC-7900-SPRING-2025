@@ -74,4 +74,4 @@ The application uses a simple yet elegant HTML form to facilitate image uploads 
 1. User uploads an image.
 2. The application resizes and processes the image.
 3. The image is sent to the NOVITA API for prompt generation.
-4. The returned prompt is displayed to the user alongside the uploaded image.
+4. The returned prompt is displayed to the user beneath the uploaded image.
