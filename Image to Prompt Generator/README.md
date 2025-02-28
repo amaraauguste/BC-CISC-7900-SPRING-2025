@@ -65,10 +65,6 @@ The **Image to Prompt Generator** is a Flask application that utilizes the NOVIT
 - **templates/image_to_prompt_generator.html:** The HTML template for the web interface.
 - **config.txt:** To hold the NOVITA API Key for API authentication.
 
-## Sample HTML Design
-
-The application uses a simple yet elegant HTML form to facilitate image uploads and displays the results in a friendly layout. The stylesheet embedded in the HTML provides a clean and responsive design.
-
 ## Example Flow
 
 1. User uploads an image.
