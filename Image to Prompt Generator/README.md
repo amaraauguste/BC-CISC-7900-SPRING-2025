@@ -49,7 +49,7 @@ The **Image to Prompt Generator** is a Flask application that utilizes the NOVIT
 
 1. **Run the application:**
    ```bash
-   python app.py
+   python 'image2prompt.py'
    ```
    The application will automatically open in your default web browser after a brief delay.
 
@@ -61,7 +61,7 @@ The **Image to Prompt Generator** is a Flask application that utilizes the NOVIT
 
 ## Application Structure
 
-- **main.py:** The main Flask application file that handles image uploading and interacting with the NOVITA API.
+- **image2prompt.py:** The main Flask application file that handles image uploading and interacting with the NOVITA API.
 - **templates/image_to_prompt_generator.html:** The HTML template for the web interface.
 - **config.txt:** To hold the NOVITA API Key for API authentication.
 
