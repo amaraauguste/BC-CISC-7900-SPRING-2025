@@ -1,1 +1,0 @@
-NOVITA_API_KEY=<your_novita_api_key>
