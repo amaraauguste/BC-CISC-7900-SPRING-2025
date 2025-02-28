@@ -40,7 +40,7 @@ The **Image to Prompt Generator** is a Flask application that utilizes the NOVIT
 
 3. **Set up your NOVITA API Key:**
    - Create a file named `config.txt` in the project root directory.
-   - Add the following line to `config.txt`:
+   - Add the following line to `config.txt`, replacing <your_novita_api_key> with your API key:
      ```
      NOVITA_API_KEY=<your_novita_api_key>
      ```
