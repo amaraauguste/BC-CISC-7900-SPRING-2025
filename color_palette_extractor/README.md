@@ -95,23 +95,7 @@ The application automatically creates the `uploads/` and `palettes/` directories
 
 ## Customization & Notes
 
-- **Color Filtering:** Modify `COLOR_HUE_RANGES` in `app.py` to add or adjust color filters.
+- **Color Filtering:** Modify `COLOR_HUE_RANGES` in `color_palette_extractor.py` to add or adjust color filters.
 - **Thresholds:** Adjust saturation (`MIN_SATURATION`) and brightness (`MIN_VALUE`) thresholds as needed.
 - **Performance:** Resizing images to a width of 400 pixels speeds up processing.
 - **Limitations:** Small or low-contrast images may produce limited results.
-
----
-
-## License
-
-This project is provided as-is for educational and personal use. Feel free to modify and extend.
-
----
-
-## Contact
-
-For questions or contributions, please contact the author.
-
----
-
-**Enjoy extracting beautiful color palettes!**
