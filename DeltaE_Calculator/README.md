@@ -1,4 +1,4 @@
-# Delta E Calculator Web Application
+# Delta E (ΔE) Calculator Web Application
 
 **Author:** Amara Auguste  
 **Date:** May 1, 2025
@@ -7,13 +7,13 @@
 
 ## Overview
 
-The **Delta E Calculator** is a user-friendly web application built with Flask that enables users to compare colors using various Delta E metrics. It supports both individual color comparisons and batch processing through Excel file uploads.
+The **Delta E (ΔE) Calculator** is a user-friendly web application built with Flask that enables users to compare colors using various Delta E (ΔE) metrics. It supports both individual color comparisons and batch processing through Excel file uploads.
 
 ## Features
 
 - Input two hex color codes to compute their color differences.
 - Converts colors to RGB, XYZ, and Lab color spaces.
-- Calculates Delta E values using CIE76, CIE94, and CIE2000 formulas.
+- Calculates Delta E (ΔE) values using CIE76, CIE94, and CIE2000 formulas.
 - Uploads an Excel (.xlsx) file containing multiple color pairs for batch processing.
 - Displays comparison results in a clear format.
 - Allows downloading of results as an Excel file.
