@@ -12,7 +12,7 @@ The Color Palette Extractor is a user-friendly web application built with Flask 
 - **Palette Mode:** Extracts the most dominant colors from the image.
 - **Color Mode:** Filters and extracts colors within specific hue ranges based on user-selected colors.
 
-The application displays the extracted colors as hex codes and generates an image palette for visual reference.
+The application displays the extracted colors as hex codes and generates a visual palette for easy reference.
 
 ---
 
@@ -57,7 +57,7 @@ your_project/
 └── palettes/           # For generated palette images
 ```
 
-Ensure the `templates/` folder contains `color_palette_extractor.html` for rendering results.
+Ensure your `templates/` folder contains the `color_palette_extractor.html` file for rendering results.
 
 ---
 
@@ -84,6 +84,12 @@ The app will automatically open at [http://127.0.0.1:5000/](http://127.0.0.1:500
 - The original image is saved in `uploads/`.
 - The generated color palette image appears in `palettes/`.
 - Hex codes of the extracted colors are displayed on the page.
+
+---
+
+## Note on Folder Creation
+
+The application automatically creates the `uploads/` and `palettes/` directories if they do not already exist when you run `app.py`. This means you do not need to manually create these folders before starting the app.
 
 ---
 
