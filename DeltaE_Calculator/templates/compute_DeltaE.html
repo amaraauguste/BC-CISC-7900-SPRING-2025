@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Comparison</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .form-container {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        form {
+            margin-bottom: 15px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="text"], input[type="file"] {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .color-comparison-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .color-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+        }
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .delta-e-values {
+            text-align: center;
+            margin: 0 20px;
+        }
+        .delta-e-values p {
+            margin: 5px 0;
+        }
+        #uploadResults {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Comparison Tool</h1>
+
+    <div class="form-container">
+        <h2>Compare Single Color Pair</h2>
+        <form id="singleColorForm">
+            <label for="color1">Color 1 (Hex): </label>
+            <input type="text" id="color1" name="color1" value="#FF5733" required>
+            <label for="color2">Color 2 (Hex): </label>
+            <input type="text" id="color2" name="color2" value="#33FF57" required>
+            <button type="submit">Compare Colors</button>
+        </form>
+
+        <div id="singleColorResults" class="color-comparison-container">
+            <!-- Single color comparison results will be injected here -->
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Compare Colors from Excel File</h2>
+        <p>Upload an Excel file (.xlsx) with two columns containing hex color codes.</p>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="excelFile">Select Excel File:</label>
+            <input type="file" id="excelFile" name="file" accept=".xlsx" required>
+            <button type="submit">Upload and Compare</button>
+        </form>
+        <div id="uploadResults">
+            <!-- Upload results and download link will be shown here -->
+        </div>
+    </div>
+
+    <script>
+        // Script for Single Color Comparison
+        document.getElementById('singleColorForm').onsubmit = function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+
+            fetch('/process', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('singleColorResults');
+                if (data.error) {
+                    resultsDiv.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="color-info">
+                            <div class="color-box" style="background-color: ${document.getElementById('color1').value};"></div>
+                            <p>RGB: ${data.rgb1}</p>
+                            <p>XYZ: ${data.xyz1}</p>
+                            <p>Lab: ${data.lab1}</p>
+                        </div>
+                        <div class="delta-e-values">
+                            <p>Delta E 1976: ${data.deltaE76}</p>
+                            <p>Delta E 1994: ${data.deltaE94}</p>
+                            <p>Delta E 2000: ${data.deltaE00}</p>
+                        </div>
+                        <div class="color-info">
+                            <div class="color-box" style="background-color: ${document.getElementById('color2').value};"></div>
+                            <p>RGB: ${data.rgb2}</p>
+                            <p>XYZ: ${data.xyz2}</p>
+                            <p>Lab: ${data.lab2}</p>
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('singleColorResults').innerHTML = `<p style="color: red;">An error occurred while processing your request.</p>`;
+            });
+        }
+
+        // Script for Excel File Upload
+        document.getElementById('uploadForm').onsubmit = function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const uploadResultsDiv = document.getElementById('uploadResults');
+            uploadResultsDiv.innerHTML = '<p>Processing file...</p>'; // Indicate processing
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    uploadResultsDiv.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+                } else {
+                    uploadResultsDiv.innerHTML = `
+                        <p>${data.message}</p>
+                        <p><a href="${data.download_url}" download>Download Results Excel File</a></p>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                uploadResultsDiv.innerHTML = `<p style="color: red;">An error occurred while uploading and processing the file.</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
