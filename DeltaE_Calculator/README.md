@@ -9,6 +9,24 @@
 
 The **Delta E (ΔE) Calculator** is a user-friendly web application built with Flask that enables users to compare colors using various Delta E (ΔE) metrics. It supports both individual color comparisons and batch processing through Excel file uploads.
 
+## **Understanding Delta E (ΔE) Values**
+
+Delta E (ΔE) quantifies the difference between two colors in a perceptually uniform color space. A smaller ΔE indicates colors are more similar, while a larger ΔE suggests greater difference.
+
+Below is a chart summarizing the typical ΔE ranges and their perceptual significance:
+
+| ΔE Range             | Perceptual Difference                                              |
+|----------------------|--------------------------------------------------------------------|
+| 0 - 1                | **Not perceptible by human eyes**                                  |
+| 1 - 2                | **Perceptible through close observation**                          | 
+| 2 - 10               | **Perceptible at a glance**                                        | 
+| 11 - 49              | **Colors are more similar than opposite**                          | 
+| 100                  | **Colors are exactly opposite**                                    | 
+
+*Note:* These ranges are approximate and can vary depending on viewing conditions and individual perception.
+
+---
+
 ## Features
 
 - Input two hex color codes to compute their color differences.
@@ -94,3 +112,4 @@ your-project/
 - The code uses the `colormath` library for color conversions and Delta E calculations. However, `colormath` is no longer actively maintained, which can lead to compatibility issues with newer versions of NumPy. To address this, the code patches `np.asscalar`, which is deprecated in newer NumPy versions, by aliasing it to `np.item()`—maintaining compatibility.
 - Ensure your input hex colors are valid and properly formatted.
 - The batch processing expects an Excel file with columns named `'color1_hex'` and `'color2_hex'`.
+
